@@ -9,22 +9,27 @@ data/uploads/
 models/*.task
 *.log
 
+# 📦 Datasets originais e arquivos processados
+/data/raw/
+/data/processed/
+/data/demo/
 
-# 📦 Metadados e bancos locais (gerados automaticamente)
+# 🗄️ Banco SQLite e arquivos auxiliares
+*.sqlite
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.db
+
+# 🔐 Configurações privadas
+.env
+.env.*
+!.env.example
+
+# 🧠 Modelos gerados localmente
+/models/*.joblib
+
+# 📁 Arquivos temporários
+__pycache__/
 *.egg-info/
-data/**/*.sqlite3
-
-# 🎙️ Detector vocal 0.8 (modelos locais e sinais artificiais)
-models/*.joblib
-models/*.json
-data/demo/
-
-# 🔊 Seleções AudioSet e arquivos de áudio autorizados locais
-data/raw/audioset/
-
-# 🎞️ Vídeos locais de origem autorizada (não enviar ao Git)
-data/fontes_autorizadas/
-
-# 🔐 Gravações e vídeos locais de demonstração (não versionar)
-*.wav
-*.mp4
+.pytest_cache/

@@ -1,0 +1,20 @@
+{
+  "version": "voice-acoustics-v1",
+  "mode": "synthetic_demo",
+  "feature_names": [
+    "rms_dbfs",
+    "low_energy_fraction",
+    "clipped_fraction",
+    "rms_variability_db",
+    "zero_crossing_rate",
+    "spectral_centroid_hz",
+    "spectral_flatness",
+    "pitch_median_hz",
+    "pitch_variability_hz",
+    "voiced_fraction"
+  ],
+  "reference_count": 48,
+  "trained_at": "2026-11-06T12:44:33+00:00",
+  "sha256": "0a4cb2b0c851189cf4d2282c4f38081244e3d3fda86034f71285aab9f1fdbf62",
+  "disclaimer": "Academic acoustic deviation only; not clinical validation"
+}
