@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import importlib.util
 import json
 import os
@@ -18,12 +19,29 @@ def _dependency(name: str) -> str:
     return "instalado" if importlib.util.find_spec(name) else "ausente"
 
 
+def _runtime_import_status(name: str) -> str:
+    """Confirma que o módulo pode ser carregado, inclusive extensões nativas.
+
+    find_spec() sozinho não identifica um pyarrow instalado mas com DLL ausente
+    no Windows. Não expõe valores de ambiente nem realiza requisições externas.
+    """
+    if importlib.util.find_spec(name) is None:
+        return "ausente"
+    try:
+        importlib.import_module(name)
+    except Exception as error:
+        return f"falha ao importar ({type(error).__name__}): {str(error)[:180]}"
+    return "ok"
+
+
 def doctor() -> dict:
     """Diagnóstico sem efeitos colaterais e sem exibir credenciais."""
     load_project_environment()
     return {
         "python": sys.version.split()[0],
         "streamlit": _dependency("streamlit"),
+        "pyarrow_runtime": _runtime_import_status("pyarrow"),
+        "altair_runtime": _runtime_import_status("altair"),
         "fastapi": _dependency("fastapi"),
         "mediapipe": _dependency("mediapipe"),
         "azure_speech": _dependency("azure"),

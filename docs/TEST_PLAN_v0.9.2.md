@@ -12,6 +12,8 @@ análise de áudio original. Não incluir conteúdo sensível real em áudio de 
 cd /c/GITHUB/tech-challenge-fase4
 source .venv/Scripts/activate
 python -m pip install -e ".[all,test]"
+python -m pip check
+python -c "import pyarrow as pa; import altair; import streamlit; print('PyArrow OK:', pa.__version__)"
 python -m pytest -q
 python -m fase4 doctor
 python -m fase4 run
@@ -44,7 +46,7 @@ locais válidas. Não envie o `.env` nem gravações privadas ao GitHub.
 
 - `tests/test_audio_presentation_v092.py`: identificação literal, negações,
   apresentação sem objetos internos, histórico compatível e vínculo de alertas.
-- **88 testes aprovados** no ambiente de validação local (Linux), sem chaves Azure,
+- **91 testes aprovados** após inclusão de três regressões do diagnóstico PyArrow, no ambiente de revisão (Linux), sem chaves Azure,
   sem consumir cota F0 e sem MediaPipe real.
 - Foi realizado um teste local de processamento do arquivo `0001_azure_16khz.wav`
   com adaptadores Azure simulados: duração de 8,94 s, dois trechos identificados,
@@ -58,3 +60,7 @@ locais válidas. Não envie o `.env` nem gravações privadas ao GitHub.
 As métricas de energia e pausas descrevem o sinal acústico; sentimentos e entidades
 são estimativas de um serviço de linguagem e podem conter erros semânticos.
 A fila de alertas é demonstrativa e exige revisão humana. Não faz diagnóstico.
+
+## 🪟 Verificação de ambiente Windows
+
+Antes do Streamlit, `python -m fase4 doctor` agora inclui `pyarrow_runtime` e `altair_runtime`. O valor esperado com dependências completas é `ok`; valores `ausente` ou `falha ao importar` exigem correção do ambiente, pois o gráfico da aba Monitoramento usa Altair/PyArrow. Consulte [SETUP_WINDOWS.md](SETUP_WINDOWS.md). Isso **não substitui** o teste visual em um Windows real.

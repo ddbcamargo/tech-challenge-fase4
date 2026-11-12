@@ -140,6 +140,6 @@ Veja [`AUDIOSET_AUTOMATION.md`](AUDIOSET_AUTOMATION.md) para os comandos, a exig
 de autorização de uso/download e as limitações do YouTube e das avaliações.
 
 
-## ✅ v0.8.5 — Preparação integrada
+## 🗃️ Nota sobre o fluxo antigo da versão 0.8.5
 
-O comando `python -m fase4 run` executa a preparação dos índices oficiais, a curadoria multiclasse do AudioSet e o treinamento quando houver **WAVs oficiais autorizados já importados**, sem misturar o split `eval` com o treino. Ausência de mídia produz somente o baseline **`synthetic_demo`** explicitamente identificado. Saiba mais em [`AUDIOSET_AUTOMATICO.md`](AUDIOSET_AUTOMATICO.md).
+A descrição histórica de preparação automática em [`AUDIOSET_AUTOMATICO.md`](AUDIOSET_AUTOMATICO.md) **não corresponde ao comportamento atual da versão 0.9.2**. Atualmente, `python -m fase4 run` somente prepara o banco fictício e inicia o Streamlit: **não baixa datasets, não executa curadoria e não treina modelo de voz automaticamente**. Para dados oficiais, execute `prepare-datasets`, `validate-datasets` e `import-physionet` explicitamente. Para vídeo, execute `prepare-pose-model`. Veja [`SETUP_WINDOWS.md`](SETUP_WINDOWS.md).

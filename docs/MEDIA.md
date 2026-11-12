@@ -23,9 +23,9 @@ python -m fase4 doctor
 python -m fase4 run
 ```
 
-Na aba **🎙️ 3. Áudio**, envie um WAV e clique **Inspecionar WAV localmente**.
-Na aba **🎥 4. Vídeo**, clique em **Preparar modelo MediaPipe Lite**, envie o
-vídeo e clique em **Analisar postura**.
+Na aba **🎙️ Áudio + Azure**, envie um WAV e clique em **🔎 Inspecionar sinal local**.
+Na aba **🎥 Vídeo**, clique em **📥 Preparar MediaPipe Lite**, envie o
+vídeo e clique em **🦵 Analisar e gerar relatório**.
 
 Os novos botões não executam ações externas ao abrir o painel. A preparação
 do modelo é um download **somente após clique**, pela URL oficial:

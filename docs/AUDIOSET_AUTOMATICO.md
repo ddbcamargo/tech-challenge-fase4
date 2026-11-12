@@ -1,3 +1,5 @@
+> **DOCUMENTO HISTÓRICO — v0.8.5.** O fluxo principal da v0.9.2 **não executa** preparação ou treinamento de áudio automaticamente. As instruções abaixo documentam uma versão anterior; para instalação atual consulte [README](../README.md) e [SETUP_WINDOWS.md](SETUP_WINDOWS.md).
+
 # 🎙️ AudioSet automático — v0.8.5
 
 ## ✅ Objetivo

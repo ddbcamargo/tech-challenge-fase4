@@ -89,9 +89,9 @@ Depois, inicie o dashboard normalmente:
 python -m fase4 run
 ```
 
-Na aba **🎙️ 3. Áudio**, envie uma gravação **encenada/consentida** de até 30 s,
-WAV **mono PCM16 16 kHz**. Primeiro clique em **Inspecionar WAV localmente**;
-em seguida, clique em **☁️ Transcrever e analisar com Azure**, quando disponível.
+Na aba **🎙️ Áudio + Azure**, envie uma gravação **encenada/consentida** de até 30 s,
+WAV **mono PCM16 16 kHz**. Primeiro clique em **🔎 Inspecionar sinal local**;
+em seguida, clique em **☁️ Transcrever e analisar (Azure)**, quando disponível.
 A transcrição e a análise textual serão chamadas nos serviços criados.
 
 ## 🛡️ Como funciona o carregamento e a segurança
@@ -115,7 +115,7 @@ substituem limites de acesso e uso.
 
 ## ☁️ Etapa 0.7 — histórico persistido e diagnóstico
 
-O botão **☁️ Transcrever e analisar com Azure** chama, nesta ordem:
+O botão **☁️ Transcrever e analisar (Azure)** chama, nesta ordem:
 
 1. `ApplicationService.process_audio()` — valida WAV mono, PCM16, 8/16 kHz,
    limite de 30 segundos e configurações locais.
@@ -126,7 +126,7 @@ O botão **☁️ Transcrever e analisar com Azure** chama, nesta ordem:
 4. `SqlitePatientStore.save_media_event()` — grava a transcrição, o sentimento,
    os termos e a proveniência **somente após as duas integrações concluírem**.
 5. `SqlitePatientStore.media_events()` — consulta eventos gravados, sem reenviar
-   texto ou áudio ao Azure. O painel exibe isso em **📋 Histórico de análises Azure**.
+   texto ou áudio ao Azure. O painel exibe isso em **📋 Histórico de consultas deste caso**.
 
 O projeto **não grava arquivos WAV brutos** no banco: uploads temporários são
 excluídos após a ação. Entretanto, **o texto da transcrição permanece no SQLite**,
