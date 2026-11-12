@@ -1,0 +1,30 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/*.sqlite3
+data/raw/
+data/uploads/
+models/*.task
+*.log
+
+
+# 📦 Metadados e bancos locais (gerados automaticamente)
+*.egg-info/
+data/**/*.sqlite3
+
+# 🎙️ Detector vocal 0.8 (modelos locais e sinais artificiais)
+models/*.joblib
+models/*.json
+data/demo/
+
+# 🔊 Seleções AudioSet e arquivos de áudio autorizados locais
+data/raw/audioset/
+
+# 🎞️ Vídeos locais de origem autorizada (não enviar ao Git)
+data/fontes_autorizadas/
+
+# 🔐 Gravações e vídeos locais de demonstração (não versionar)
+*.wav
+*.mp4
